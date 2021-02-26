@@ -3,9 +3,6 @@ class CommentsController < ApplicationController
     comment = Comment.create(text: comment_params[:text], tweet_id: comment_params[:tweet_id], user_id: current_user.id)
     redirect_to "/tweets/#{comment.tweet.id}"   #コメントと結びつくツイートの詳細画面に遷移する
   end
-  
-   @tweet = Tweet.find(params[:id])
-    @comments = @tweet.comments.includes(:user)
 
   private
   def comment_params

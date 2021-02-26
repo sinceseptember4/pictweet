@@ -28,12 +28,12 @@ class TweetsController < ApplicationController
     if tweet.user_id == current_user.id
       tweet.destroy
     end
-
+  end
   def show
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.includes(:user)
   end
-  end
+
 
   private
   def tweet_params
